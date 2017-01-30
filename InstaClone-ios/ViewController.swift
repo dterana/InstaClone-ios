@@ -16,31 +16,72 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let user = PFObject(className: "Users")
-        
-        user["name"] = "Bob"
-        
-        user.saveInBackground { (success, error) -> Void in
-            
-            if success {
-                
-                print("Object has been saved.")
-                
-            } else {
-                
-                if error != nil {
-                    
-                    print (error!)
-                    
-                } else {
-                    
-                    print ("Error")
-                }
-                
-            }
-            
-        }
-        
+//        create a user
+//        let user = PFObject(className: "Users")
+//        
+//        user["name"] = "Bob"
+//        
+//        user.saveInBackground { (success, error) -> Void in
+//            
+//            if success {
+//                
+//                print("Object has been saved.")
+//                
+//            } else {
+//                
+//                if error != nil {
+//                    
+//                    print (error!)
+//                    
+//                } else {
+//                    
+//                    print ("Error")
+//                }
+//                
+//            }
+//            
+//        }
+
+//        access to am user by ID
+//        let query = PFQuery(className: "Users")
+//        
+//        query.getObjectInBackground(withId: "h3IQ8q2wlO") { (object, error) in
+//            
+//            if error != nil {
+//                
+//                print (error!)
+//                
+//            } else {
+//                
+//                if let user = object {
+//                    print(user)
+//                    print(user["name"])
+//        
+//                    Modify the user
+//                    user["name"] = "Bobby"
+//                    
+//                    user.saveInBackground { (success, error) -> Void in
+//                        if success {
+//                            
+//                            print("Object has been saved.")
+//                        
+//                        } else {
+//                            
+//                            if error != nil {
+//                                
+//                                print (error!)
+//                            
+//                            } else {
+//                                
+//                                print ("Error")
+//                            
+//                            }
+//                        
+//                        }
+//                    }
+//                }
+//            }
+//        }
     }
     
     override func didReceiveMemoryWarning() {
