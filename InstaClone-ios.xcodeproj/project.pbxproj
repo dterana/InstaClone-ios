@@ -20,6 +20,7 @@
 		C5C469891E3FC5520061BE8D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C469871E3FC5520061BE8D /* Parse.framework */; };
 		C5C4698D1E3FD3000061BE8D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C4698C1E3FD3000061BE8D /* Config.swift */; };
 		C5F4B5B81E41D099000D54CF /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F4B5B71E41D099000D54CF /* UserTableViewController.swift */; };
+		C5F4B5BA1E41E88B000D54CF /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F4B5B91E41E88B000D54CF /* PostViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		C5C469871E3FC5520061BE8D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		C5C4698C1E3FD3000061BE8D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		C5F4B5B71E41D099000D54CF /* UserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
+		C5F4B5B91E41E88B000D54CF /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +63,9 @@
 			isa = PBXGroup;
 			children = (
 				C5C4696A1E3FC47E0061BE8D /* InstaClone-ios */,
-				C5C469691E3FC47E0061BE8D /* Products */,
+				C5F4B5BB1E41EBFC000D54CF /* Ressources */,
 				C5C4697D1E3FC4C80061BE8D /* Frameworks */,
+				C5C469691E3FC47E0061BE8D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,14 +80,13 @@
 		C5C4696A1E3FC47E0061BE8D /* InstaClone-ios */ = {
 			isa = PBXGroup;
 			children = (
+				C5C4696F1E3FC47E0061BE8D /* Main.storyboard */,
 				C5C4696B1E3FC47E0061BE8D /* AppDelegate.swift */,
 				C5C4696D1E3FC47E0061BE8D /* ViewController.swift */,
-				C5C4696F1E3FC47E0061BE8D /* Main.storyboard */,
 				C5F4B5B71E41D099000D54CF /* UserTableViewController.swift */,
-				C5C469721E3FC47E0061BE8D /* Assets.xcassets */,
-				C5C469741E3FC47E0061BE8D /* LaunchScreen.storyboard */,
-				C5C469771E3FC47E0061BE8D /* Info.plist */,
+				C5F4B5B91E41E88B000D54CF /* PostViewController.swift */,
 				C5C4698C1E3FD3000061BE8D /* Config.swift */,
+				C5C469741E3FC47E0061BE8D /* LaunchScreen.storyboard */,
 			);
 			path = "InstaClone-ios";
 			sourceTree = "<group>";
@@ -100,6 +102,16 @@
 				C5C4697E1E3FC4C80061BE8D /* libstdc++.6.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C5F4B5BB1E41EBFC000D54CF /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				C5C469721E3FC47E0061BE8D /* Assets.xcassets */,
+				C5C469771E3FC47E0061BE8D /* Info.plist */,
+			);
+			name = Ressources;
+			path = "InstaClone-ios";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +191,7 @@
 				C5C4696C1E3FC47E0061BE8D /* AppDelegate.swift in Sources */,
 				C5F4B5B81E41D099000D54CF /* UserTableViewController.swift in Sources */,
 				C5C4698D1E3FD3000061BE8D /* Config.swift in Sources */,
+				C5F4B5BA1E41E88B000D54CF /* PostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

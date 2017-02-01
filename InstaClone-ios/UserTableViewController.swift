@@ -11,25 +11,20 @@ import Parse
 
 class UserTableViewController: UITableViewController {
 
+    //--------------------------------------
+    //MARK: - Variable declaration
+    //--------------------------------------
+    
     var usernames: [String] = [""]
     var userIDs: [String] = [""]
     var isFollowing: [String : Bool] = ["" : false]
     
     var refresher: UIRefreshControl!
+
     
-    @IBAction func logoutBtn(_ sender: UIBarButtonItem) {
-        
-        PFUser.logOut()
-        
-        performSegue(withIdentifier: "logoutSegue", sender: self)
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        self.navigationController?.navigationBar.isHidden = false
-        
-    }
+    //--------------------------------------
+    //MARK: - Function declaration
+    //--------------------------------------
     
     func refresh() {
         
@@ -98,6 +93,31 @@ class UserTableViewController: UITableViewController {
         })
     }
     
+    
+    //--------------------------------------
+    //MARK: - IBAction declaration
+    //--------------------------------------
+    
+    @IBAction func logoutBtn(_ sender: UIBarButtonItem) {
+        
+        PFUser.logOut()
+        
+        performSegue(withIdentifier: "logoutSegue", sender: self)
+        
+    }
+    
+    
+    //--------------------------------------
+    //MARK: - Override Function declaration
+    //--------------------------------------
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        self.navigationController?.navigationBar.isHidden = false
+        
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
