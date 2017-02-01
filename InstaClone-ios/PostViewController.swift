@@ -18,6 +18,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     var activityIndicator = UIActivityIndicatorView()
 
+    @IBOutlet weak var postImageLbl: UIButton!
     
     //--------------------------------------
     //MARK: - Function declaration
@@ -122,6 +123,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        postImageLbl.layer.cornerRadius = 5.0
     }
 
     override func didReceiveMemoryWarning() {
