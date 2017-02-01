@@ -15,6 +15,8 @@ class UserTableViewController: UITableViewController {
     var userIDs: [String] = [""]
     var isFollowing: [String : Bool] = ["" : false]
     
+    var refresher: UIRefreshControl!
+    
     @IBAction func logoutBtn(_ sender: UIBarButtonItem) {
         
         PFUser.logOut()
@@ -29,13 +31,12 @@ class UserTableViewController: UITableViewController {
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    func refresh() {
+        
         let query = PFUser.query()
         
         query?.findObjectsInBackground(block: { (objects, error) in
-        
+            
             if error != nil {
                 
                 print(error!)
@@ -84,6 +85,8 @@ class UserTableViewController: UITableViewController {
                                         
                                         self.tableView.reloadData()
                                         
+                                        self.refresher.endRefreshing()
+                                        
                                     }
                                 }
                             })
@@ -93,6 +96,21 @@ class UserTableViewController: UITableViewController {
             }
             
         })
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        refresh()
+        
+        refresher = UIRefreshControl()
+        
+        refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        
+        refresher.addTarget(self, action: #selector(UserTableViewController.refresh), for: UIControlEvents.valueChanged)
+        
+        tableView.addSubview(refresher)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -122,6 +140,11 @@ class UserTableViewController: UITableViewController {
         if isFollowing[userIDs[indexPath.row]]! {
             
             cell.accessoryType = UITableViewCellAccessoryType.checkmark
+        
+        } else {
+            
+            cell.accessoryType = UITableViewCellAccessoryType.none
+            
         }
 
         return cell
