@@ -28,9 +28,20 @@ class ViewController: UIViewController {
         
     }
     
-    @IBOutlet weak var emailTextField: UITextField!
+    //--------------------------------------
+    //MARK: - IBOutlet declaration
+    //--------------------------------------
     
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var signupOrLoginLbl: UIButton!
+    @IBOutlet weak var changeSignupModeLbl: UIButton!
+    @IBOutlet weak var messageLabel: UILabel!
+    
+    
+    //--------------------------------------
+    //MARK: - IBAction declaration
+    //--------------------------------------
     
     @IBAction func signupOrLoginBtn(_ sender: UIButton) {
         
@@ -77,7 +88,8 @@ class ViewController: UIViewController {
                         
                     } else {
                         
-                        self.createAlert(title: "Signup successful", message: "Account successfully created")
+                        //Sign up successful
+                        self.performSegue(withIdentifier: "showUserTableSegue", sender: self)
         
                     }
                     
@@ -107,7 +119,7 @@ class ViewController: UIViewController {
                     } else {
                         
                         //Log in successful
-                        self.createAlert(title: "Login successful", message: "Cool")
+                        self.performSegue(withIdentifier: "showUserTableSegue", sender: self)
                         
                         
                     }
@@ -118,8 +130,6 @@ class ViewController: UIViewController {
         }
         
     }
-    
-    @IBOutlet weak var signupOrLoginLbl: UIButton!
     
     
     @IBAction func changeSignupModeBtn(_ sender: UIButton) {
@@ -147,9 +157,17 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var changeSignupModeLbl: UIButton!
     
-    @IBOutlet weak var messageLabel: UILabel!
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if PFUser.current() != nil {
+            
+            performSegue(withIdentifier: "showUserTableSegue", sender: self)
+            
+        }
+        
+        self.navigationController?.navigationBar.isHidden = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
