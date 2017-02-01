@@ -12,9 +12,18 @@ import Parse
 
 class ViewController: UIViewController {
     
+    //--------------------------------------
+    //MARK: - Variable declaration
+    //--------------------------------------
+    
     var signupMode = true
     
     var activityIndicator = UIActivityIndicatorView()
+    
+    
+    //--------------------------------------
+    //MARK: - Function declaration
+    //--------------------------------------
     
     func createAlert(title: String, message: String ) {
         
@@ -157,6 +166,10 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    //--------------------------------------
+    //MARK: - Override Function declaration
+    //--------------------------------------
     
     override func viewDidAppear(_ animated: Bool) {
         
