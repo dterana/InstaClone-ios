@@ -108,7 +108,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
                 
                 self.messageTextField.text = ""
                 
-                self.imageToPost.image = UIImage(named: "PersonIcon")
+                self.imageToPost.image = UIImage(named: "PersonIcon.png")
             }
         }
     }

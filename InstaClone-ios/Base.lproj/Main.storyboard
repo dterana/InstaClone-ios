@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -112,11 +113,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Users" id="PcN-Rt-hyk">
-                        <barButtonItem key="leftBarButtonItem" title="Post" id="5dy-wY-cgS">
-                            <connections>
-                                <segue destination="0KX-kG-e0e" kind="show" identifier="postSegue" id="Wxo-lu-IjX"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Post" id="5dy-wY-cgS">
+                                <connections>
+                                    <segue destination="0KX-kG-e0e" kind="show" identifier="postSegue" id="Wxo-lu-IjX"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Feed" id="bT9-Pb-Wgg">
+                                <connections>
+                                    <segue destination="ikw-Ka-idN" kind="show" identifier="feedSegue" id="V6G-vo-cql"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="JEa-Lb-v9w">
                             <connections>
                                 <action selector="logoutBtn:" destination="mfI-8S-EMn" id="Y1T-OY-hjS"/>
@@ -130,6 +138,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vgj-O1-xAz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2034" y="124"/>
+        </scene>
+        <!--Your Feed-->
+        <scene sceneID="xUy-8f-ehB">
+            <objects>
+                <tableViewController title="Your Feed" id="ikw-Ka-idN" customClass="FeedTableViewController" customModule="InstaClone_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="258" sectionHeaderHeight="28" sectionFooterHeight="28" id="5V4-qY-beB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="258" id="UDO-Kl-U9D" customClass="FeedTableViewCell" customModule="InstaClone_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="258"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UDO-Kl-U9D" id="K72-ke-cRC">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="257"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uh3-Wz-Tdr">
+                                            <rect key="frame" x="40" y="8" width="240" height="177"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYN-Rw-zHk">
+                                            <rect key="frame" x="8" y="193" width="304" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQZ-pz-XA1">
+                                            <rect key="frame" x="8" y="222" width="304" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="messageLbl" destination="FQZ-pz-XA1" id="seJ-DS-eCg"/>
+                                    <outlet property="postedImage" destination="Uh3-Wz-Tdr" id="AfS-q8-GsF"/>
+                                    <outlet property="usernameLbl" destination="iYN-Rw-zHk" id="jkL-77-jMQ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ikw-Ka-idN" id="sO4-3X-V7C"/>
+                            <outlet property="delegate" destination="ikw-Ka-idN" id="Eo2-sb-BjO"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sx6-R7-7h7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3082.5" y="-205"/>
         </scene>
         <!--Post-->
         <scene sceneID="FGm-Ab-O8D">
@@ -183,7 +244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hq5-Bn-d5b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3063.75" y="122.5"/>
+            <point key="canvasLocation" x="3086" y="493"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Ak-rC-6Sx">
