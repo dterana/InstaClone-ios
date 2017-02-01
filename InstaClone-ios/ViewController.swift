@@ -130,10 +130,7 @@ class ViewController: UIViewController {
                         //Log in successful
                         self.performSegue(withIdentifier: "showUserTableSegue", sender: self)
                         
-                        
                     }
-
-                    
                 })
             }
         }
@@ -180,6 +177,7 @@ class ViewController: UIViewController {
         }
         
         self.navigationController?.navigationBar.isHidden = true
+        
     }
     
     override func viewDidLoad() {
