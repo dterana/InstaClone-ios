@@ -10,13 +10,13 @@ import UIKit
 
 import Parse
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class MainViewController: UIViewController, UITextFieldDelegate {
     
     //--------------------------------------
     //MARK: - Variable declaration
     //--------------------------------------
     
-    var signupMode = true
+    var signupMode = false
     
     var activityIndicator = UIActivityIndicatorView()
     
