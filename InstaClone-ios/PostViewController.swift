@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class PostViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class PostViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
     
     
     //--------------------------------------
@@ -56,11 +56,23 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     @IBOutlet weak var imageToPost: UIImageView!
     @IBOutlet weak var messageTextField: UITextField!
-    
+    @IBOutlet weak var takeAPhotoLbl: UIStackView!
+    @IBOutlet weak var chooseAnImageLbl: UIStackView!
     
     //--------------------------------------
     //MARK: - IBAction declaration
     //--------------------------------------
+    
+    @IBAction func takeAPhotoByn(_ sender: UIButton) {
+        
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+        imagePicker.allowsEditing = false
+        
+        self.present(imagePicker, animated: true, completion: nil)
+
+    }
     
     @IBAction func chooseAnImageBtn(_ sender: UIButton) {
         
@@ -70,6 +82,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         imagePicker.allowsEditing = false
         
         self.present(imagePicker, animated: true, completion: nil)
+        
     }
     
     @IBAction func postImageBtn(_ sender: UIButton) {
@@ -122,8 +135,11 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        messageTextField.delegate = self
+        
         postImageLbl.layer.cornerRadius = 5.0
+        takeAPhotoLbl.layer.cornerRadius = 5.0
+        chooseAnImageLbl.layer.cornerRadius = 5.0
     }
 
     override func didReceiveMemoryWarning() {
@@ -131,15 +147,14 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Hide keyboard if you clic outside the text field
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
-    */
-
+    
+    // Hide keyboard if you press return
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
+  
 }
