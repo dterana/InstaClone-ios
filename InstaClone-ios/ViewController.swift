@@ -10,7 +10,7 @@ import UIKit
 
 import Parse
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     //--------------------------------------
     //MARK: - Variable declaration
@@ -184,8 +184,25 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         print("start")
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
         signupOrLoginLbl.layer.cornerRadius = 5.0
         
+    }
+    
+    // Hide keyboard if you clic outside the text field
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        self.view.endEditing(true)
+        
+    }
+    
+    // Hide keyboard if you press return
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        return textField.resignFirstResponder()
+    
     }
     
     override func didReceiveMemoryWarning() {
