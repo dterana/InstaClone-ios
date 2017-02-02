@@ -17,8 +17,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
     //--------------------------------------
     
     var activityIndicator = UIActivityIndicatorView()
-
-    @IBOutlet weak var postImageLbl: UIButton!
+    
     
     //--------------------------------------
     //MARK: - Function declaration
@@ -56,8 +55,9 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     @IBOutlet weak var imageToPost: UIImageView!
     @IBOutlet weak var messageTextField: UITextField!
-    @IBOutlet weak var takeAPhotoLbl: UIStackView!
-    @IBOutlet weak var chooseAnImageLbl: UIStackView!
+    @IBOutlet weak var takeAPhotoLbl: UIButton!
+    @IBOutlet weak var chooseAnImageLbl: UIButton!
+    @IBOutlet weak var postImageLbl: UIButton!
     
     //--------------------------------------
     //MARK: - IBAction declaration

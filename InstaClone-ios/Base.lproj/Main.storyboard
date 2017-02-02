@@ -331,11 +331,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="chooseAnImageLbl" destination="Tua-ZC-5Bq" id="c16-zO-j2s"/>
+                        <outlet property="chooseAnImageLbl" destination="7l1-kY-hgi" id="lMQ-B4-gnN"/>
                         <outlet property="imageToPost" destination="RpB-39-O8P" id="GRq-VC-DI8"/>
                         <outlet property="messageTextField" destination="g4R-H8-fsp" id="0DE-iY-TqC"/>
                         <outlet property="postImageLbl" destination="Qg2-bU-aQw" id="FyA-Gj-yWS"/>
-                        <outlet property="takeAPhotoLbl" destination="Tua-ZC-5Bq" id="NV2-AE-dc1"/>
+                        <outlet property="takeAPhotoLbl" destination="d8a-JM-xzG" id="oOS-zU-BYJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hq5-Bn-d5b" userLabel="First Responder" sceneMemberID="firstResponder"/>
